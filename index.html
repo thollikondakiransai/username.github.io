@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kiran Sai — .NET Full Stack Developer</title>
+  <meta name="description" content="Portfolio of Kiransai Thollikonda, .NET Full Stack Developer specializing in ASP.NET, C#, Angular, Azure, AWS, and microservices." />
+  <meta property="og:title" content="Kiran Sai — .NET Full Stack Developer" />
+  <meta property="og:description" content="Full‑stack engineering across .NET, Angular, Azure/AWS, and microservices." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b1020;
+      --card: #10172a;
+      --muted: #8aa1b4;
+      --text: #e6edf6;
+      --brand: #0ea5e9; /* sky-500 */
+      --brand-2: #22d3ee; /* cyan-400 */
+      --ring: rgba(14,165,233,.35);
+      --shadow: 0 10px 25px rgba(2, 6, 23, .45);
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 80% -20%, rgba(34,211,238,.06), transparent 60%),
+                  radial-gradient(1000px 500px at 10% -10%, rgba(14,165,233,.12), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Layout */
+    .container { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: saturate(180%) blur(10px);
+      background: rgba(11,16,32,.65);
+      border-bottom: 1px solid rgba(148,163,184,.12);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; letter-spacing: .2px; }
+    .logo {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: conic-gradient(from 180deg at 50% 50%, var(--brand), var(--brand-2), var(--brand));
+      box-shadow: 0 0 0 6px rgba(34,211,238,.08), 0 12px 24px rgba(34,211,238,.15);
+    }
+    nav a { color: var(--text); text-decoration: none; opacity: .85; font-weight: 500; }
+    .nav-links { display: flex; gap: 22px; }
+    .nav a:hover { opacity: 1; }
+
+    /* Hero */
+    .hero { padding: 72px 0 36px; }
+    .hero h1 { font-size: clamp(28px, 4.4vw, 48px); line-height: 1.1; margin: 0 0 10px; }
+    .hero p { font-size: clamp(16px, 2.2vw, 18px); color: var(--muted); margin: 0 0 20px; }
+
+    .badges { display:flex; flex-wrap: wrap; gap: 10px; margin: 22px 0 28px; }
+    .badge {
+      display:inline-flex; align-items:center; gap:8px; padding: 8px 12px; border-radius: 999px;
+      background: linear-gradient(180deg, rgba(2,6,23,.6), rgba(2,6,23,.2));
+      border: 1px solid rgba(148,163,184,.18);
+      font-size: 13px; color: #cfe8ff; letter-spacing: .2px;
+    }
+    .cta { display:flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      appearance: none; cursor: pointer; text-decoration: none; color: #021018; font-weight: 700;
+      background: linear-gradient(180deg, var(--brand), var(--brand-2));
+      border: 0; border-radius: 999px; padding: 13px 18px; box-shadow: var(--shadow);
+      transition: transform .08s ease, box-shadow .2s ease; display:inline-flex; align-items:center; gap:10px;
+    }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 16px 40px rgba(14,165,233,.25); }
+    .btn.secondary { background: transparent; color: var(--text); border: 1px solid rgba(148,163,184,.25); font-weight: 600; }
+
+    /* Sections */
+    section { padding: 28px 0 4px; }
+    .section-title { font-size: 14px; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin: 26px 0 10px; }
+
+    .grid { display: grid; gap: 18px; }
+    .grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    @media (max-width: 860px) { .grid.cols-2, .grid.cols-3 { grid-template-columns: 1fr; } }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00));
+      border: 1px solid rgba(148,163,184,.15);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px 18px;
+    }
+    .card h3 { margin: 6px 0 6px; font-size: 18px; }
+    .meta { color: var(--muted); font-size: 13px; }
+    .card ul { margin: 10px 0 0 18px; padding: 0; }
+    .taglist { display:flex; gap:8px; flex-wrap: wrap; margin-top: 12px; }
+    .tag { font-size: 12px; color: #cfe8ff; padding: 6px 10px; border-radius: 999px; border: 1px dashed rgba(148,163,184,.28);
+           background: rgba(2, 6, 23, .35); }
+
+    /* Footer */
+    footer { border-top: 1px solid rgba(148,163,184,.12); margin-top: 36px; }
+    .foot { display:flex; flex-wrap: wrap; gap: 12px; align-items:center; justify-content: space-between; padding: 18px 0; color: var(--muted); font-size: 14px; }
+    .social { display:flex; gap: 12px; }
+    .social a { color: var(--muted); text-decoration: none; border:1px solid rgba(148,163,184,.18); padding:8px 10px; border-radius: 10px; }
+    .social a:hover { color: var(--text); border-color: rgba(148,163,184,.42); }
+
+    /* Anchor offsets */
+    .anchor { scroll-margin-top: 84px; }
+
+    /* Focus styles */
+    a, button { outline: none; }
+    a:focus-visible, .btn:focus-visible { box-shadow: 0 0 0 4px var(--ring); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <span>Kiran Sai</span>
+      </div>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <h1>.NET Full Stack Developer</h1>
+      <p>Building secure, scalable web applications with ASP.NET, C#, Angular, and cloud (Azure • AWS • GCP). 8+ years across healthcare, insurance, and finance.</p>
+      <div class="badges">
+        <span class="badge">ASP.NET Core</span>
+        <span class="badge">C#</span>
+        <span class="badge">Angular</span>
+        <span class="badge">Microservices</span>
+        <span class="badge">Azure &amp; AWS</span>
+        <span class="badge">SQL Server</span>
+      </div>
+      <div class="cta">
+        <a class="btn" href="mailto:thollikondakiransai@gmail.com" aria-label="Email Kiran">Email Me</a>
+        <a class="btn secondary" href="#contact">Get My Details</a>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="anchor">
+      <div class="section-title">About</div>
+      <div class="card">
+        <p>
+          I design and deliver robust, cloud‑ready .NET solutions, from REST APIs and microservices to responsive
+          front‑ends. I collaborate closely with cross‑functional teams and focus on clean code, performance, and a
+          great developer &amp; user experience.
+        </p>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="anchor">
+      <div class="section-title">Experience</div>
+      <div class="grid cols-2">
+        <article class="card">
+          <h3>McKesson Corporation — Full Stack .NET Developer</h3>
+          <div class="meta">Aug 2023 – Present • New York, USA</div>
+          <ul>
+            <li>Built scalable ASP.NET Core services and Angular/React SPAs for enterprise workflows.</li>
+            <li>Designed &amp; consumed REST APIs; optimized SQL Server queries and Entity Framework usage.</li>
+            <li>Integrated Azure (Cognitive Services, ML, Worker Roles) and automated CI/CD (GitHub/TFS).</li>
+          </ul>
+          <div class="taglist">
+            <span class="tag">ASP.NET Core</span><span class="tag">Angular</span><span class="tag">EF</span><span class="tag">Azure</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3>USAA — .NET Full Stack Developer</h3>
+          <div class="meta">— • New York, USA</div>
+          <ul>
+            <li>Developed REST APIs with ASP.NET MVC/Web API &amp; WCF; JWT auth for secure services.</li>
+            <li>Modern UIs with Angular (2+), AngularJS, React, Bootstrap, Highcharts.</li>
+            <li>AWS deployments using EC2, API Gateway, Lambda, RDS, CloudFront.</li>
+          </ul>
+          <div class="taglist">
+            <span class="tag">Web API</span><span class="tag">JWT</span><span class="tag">Angular/React</span><span class="tag">AWS</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Jefferies Financial Group (Wipro) — Senior .NET Developer</h3>
+          <div class="meta">Dec 2022 – Jul 2023 • Mumbai, India</div>
+          <ul>
+            <li>Migrated legacy apps to microservices and Azure PaaS; SPAs with Angular &amp; TypeScript.</li>
+            <li>Implemented OAuth/RBAC and containerized workloads (Docker).</li>
+            <li>Agile/TDD with EF 6, Razor, and SQL performance tuning.</li>
+          </ul>
+          <div class="taglist">
+            <span class="tag">Microservices</span><span class="tag">Azure</span><span class="tag">Angular</span><span class="tag">Docker</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Trinity Health (Mindtree) — .NET Developer</h3>
+          <div class="meta">Apr 2018 – Apr 2019 • Mumbai, India</div>
+          <ul>
+            <li>Developed healthcare apps with ASP.NET MVC, EF, SQL Server, and WCF/REST services.</li>
+            <li>Built multi‑threaded components; LINQ/ORM for robust data access.</li>
+            <li>Modernized UI with AngularJS, jQuery, and responsive layouts.</li>
+          </ul>
+          <div class="taglist">
+            <span class="tag">ASP.NET MVC</span><span class="tag">Entity Framework</span><span class="tag">WCF</span><span class="tag">SQL Server</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="anchor">
+      <div class="section-title">Skills</div>
+      <div class="grid cols-3">
+        <div class="card">
+          <h3>Back‑End</h3>
+          <p>C#, ASP.NET Core/MVC, Web API, WCF, Entity Framework, LINQ, REST, Microservices, JWT/OAuth.</p>
+        </div>
+        <div class="card">
+          <h3>Front‑End</h3>
+          <p>Angular, React, TypeScript, JavaScript, HTML5, CSS3, Bootstrap, Kendo UI.</p>
+        </div>
+        <div class="card">
+          <h3>Cloud &amp; DevOps</h3>
+          <p>Azure, AWS, GCP, Docker, Kubernetes, OpenShift, CI/CD (TFS, GitHub), Monitoring &amp; Logging.</p>
+        </div>
+        <div class="card">
+          <h3>Data</h3>
+          <p>SQL Server, Oracle, MySQL, NoSQL, performance tuning, stored procedures, indexing.</p>
+        </div>
+        <div class="card">
+          <h3>Tooling</h3>
+          <p>Git, TFS, JIRA, Rally, Visio, Postman/Fiddler, SSRS, Crystal Reports.</p>
+        </div>
+        <div class="card">
+          <h3>Practices</h3>
+          <p>Agile/Scrum, TDD, Clean Architecture, OOAD, performance &amp; security best practices.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="anchor">
+      <div class="section-title">Education</div>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>MS, Computer Science</h3>
+          <div class="meta">State University of New York at New Paltz • 2022–2024</div>
+        </div>
+        <div class="card">
+          <h3>BE, Electronics &amp; Communication</h3>
+          <div class="meta">SKCET • 2014–2018</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="anchor">
+      <div class="section-title">Contact</div>
+      <div class="card">
+        <p><strong>Email:</strong> <a href="mailto:thollikondakiransai@gmail.com">thollikondakiransai@gmail.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+1-945-249-1529">+1 (945) 249‑1529</a></p>
+        <p><strong>LinkedIn:</strong> <a href="#" target="_blank" rel="noopener">Add your LinkedIn URL</a></p>
+        <p class="meta">Tip: host this page on GitHub Pages or Netlify and add the URL to your LinkedIn profile.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <div>© <span id="year"></span> Kiran Sai. All rights reserved.</div>
+      <div class="social" aria-label="Social links">
+        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+        <a href="mailto:thollikondakiransai@gmail.com" aria-label="Email">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Update footer year automatically
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
